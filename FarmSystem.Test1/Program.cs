@@ -161,10 +161,21 @@ Emydex Farm is now empty
 ********************************************************************************************************************/
         private static void Excercise4()
         {
+            // Local function to write out when the farm is empty
+            void FarmEmptied()
+            {
+                Console.WriteLine("Emydex Farm is now empty");
+            }
+
+
             //TODO : Apply OOP concepts and modify the code below to get the required output 
             Console.WriteLine("Exercise 4: Press any key to free all animals");
             Console.ReadKey();
             var farm = new EmydexFarmSystem();
+
+            // Subscribe To when the Farm is emptied 
+            farm.FarmEmpty += FarmEmptied;
+
             Cow cow = new Cow();
             cow.Id = Guid.NewGuid().ToString();
             cow.NoOfLegs = 4;
@@ -188,6 +199,5 @@ Emydex Farm is now empty
             farm.ReleaseAllAnimals();
             Console.ReadKey();
         }
-
     }
 }
